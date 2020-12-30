@@ -60,4 +60,4 @@ outdir = input("In what directory should the tweaked parses be output?")
 
 allfiles = glob.glob(indir + "*.txt")
 for txt in allfiles:
-    tweakFile(txt,outdir)
+    tweakFile(txt, outdir)
