@@ -1,4 +1,7 @@
 
 annotated_recipes/
 recipes/
-*.txt
+tweaked/
+parsed/
+candidates/
+framecand/

@@ -39,9 +39,6 @@ class FrameDictionary:
         
             if argsExpected == 2 and "prep" in verb["tree"]:
                 argsCount += 1
-
-            if (argsCount < argsExpected):
-                print(verb["token"].lower())
             
             for coord in ZeroAnaphora.COORDINATORS:
             #if sentence has multiple potential verbs, make sure all verbs have loc
