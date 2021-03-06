@@ -3,7 +3,7 @@ import re, glob, requests, json
 #parse the recipe at the given path and output the parse as a txt file in the given directory
 def txttoparse(filepath: str, dir: str):
     #get output file name and check to see if parsed file already exists since parsing takes f o r e v e r
-    outpath = dir + re.search("/([A-Za-z0-9\-]+)\.txt",filepath).group(1) + ".parsed.txt"
+    outpath = dir + re.search("/([A-Za-z0-9\-\_]+)\.txt",filepath).group(1) + ".parsed.txt"
     try:
         txt = open(outpath,"x")
     except FileExistsError:
@@ -44,11 +44,12 @@ def parseFile(filepath:str):
     source.close()
     return out    
 
-errors = open("parseErrors.txt","w") #file to which to write sentences that cause parse errors
-
 #get input and output directories from user
 indir = input("In what directory are the recipes located?")
 outdir = input("In what directory should the parsed recipes be output?")
+errorpath = input("In what file should sentences that cause errors be printed?")
+
+errors = open(errorpath,"w") #file to which to write sentences that cause parse errors
 
 allfiles = glob.glob(indir + "*.txt")
 for txt in allfiles:
